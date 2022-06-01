@@ -1,0 +1,27 @@
+//Código desarrollado por LEANTEC ROBOTICS&ELECTRONICS
+//Esta permitido el uso de este código por cualquier usuario que lo necesite.
+//Esta prohibido el usode este código con ánimo de lucro.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                             //
+//                      CALIBRAR EL ROBOT DETRO DE LA LÍNEA NEGRA (ENCENDER DENTRO DE LA LÍNEA)                                //
+//                                                                                                                             //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Incluimos la librería de los motores
+#include <LEANTEC_ControlMotor.h>
+// Configuramos los pines que vamos a usar
+control(2,3,7,4,5,6); // MotorDer1,MotorDer2,MotorIzq1,MotorIzq2,PWM_Derecho,PWM_Izquierdo
+#define PIN_LDR1 2    // Define el pin analog de LDR 1
+#define PIN_LDR2 3    // Define el pin analog de LDR 2
+#define PIN_FL1  0    // Define el pin analog de IR  1 (Este sensor no se usa en este programa)
+#define PIN_FL2  1    // Define el pin analog de IR  2 (Este sensor no se usa en este programa)
+
+#define P_MUERTO   10   // Valor que tendrá que superar el cambio de luz para que gire el robot +/- P_MUERTO
+
+#define GIRO_LINEA 50   // Máximo giró que realizará el sensor (entre 0 y 100), 100 sería parado girando sobre su eje
+#define GIRO_FUERA 100  // Giro que hace el robot cuando se sale de la línea
+
+#define VELOCIDAD_NORMAL      255  // Velocidad a la que se desplazará el robot dentro de la línea
+#define VELOCIDAD_BAJA        200  // Velocidad a la que se desplaza el robot cuando sale un sensor fuera de la línea
+#define VELOCIDAD_BAJA_GIRO   150  // Velocidad a la que gira el robot para localizar la línea cuando se ha salido los dos sensores
